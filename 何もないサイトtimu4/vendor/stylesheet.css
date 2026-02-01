@@ -1,0 +1,134 @@
+*{
+    box-sizing: border-box;
+}
+
+:not(input):not(textarea) {
+    -webkit-user-select: none; /* Chrome, Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE/Edge */
+    user-select: none;
+    -webkit-touch-callout: none; /* iOSの長押しメニューも防止 */
+}
+
+body{
+    background-color: #eeeeee;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333333;
+    box-shadow: 0 0 8px gray;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+}
+
+header nav {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 6rem;
+    margin-left: 20vw;  /* ← 中央より右寄り */
+}
+
+@media screen and (max-width: 600px) {
+    header nav {
+        margin-left: 5vw;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+
+header nav a{
+    color: inherit;
+    text-decoration: none;
+    margin: 5px;
+    transition: all 0.5s 0s ease;
+}
+
+header nav a:hover{
+    color: rgb(188, 188, 188);
+}
+
+.d_position{
+    margin-left: 15vw;
+}
+
+header h1{
+    font-family: serif;
+    font-size: 3rem;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+.supplement{
+    font-size: 0.8rem;
+    color:#eeeeee;
+}
+
+.main{
+    margin: 280px auto 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.content {
+    position: relative;
+    background-color: white;
+    box-shadow: 0 0 8px gray;
+    padding: 20px;
+    padding-top: 120px;
+    width: 70vw;
+    min-height: calc(200vh - 80px);
+    border-radius: 5px;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.content p{
+    position: relative;
+    bottom: 100px;
+}
+
+/* nav{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 120px;
+    margin-top: 100px;
+} */
+
+aside{
+    writing-mode: vertical-rl;
+}
+
+footer {
+    background-color: #333333;
+    width: 100%;
+    padding: 3rem 0;              /* 上下の余白（高さの代わり） */
+    box-shadow: 0 0 8px gray;
+    margin-top: 4rem;              /* 上との距離を確保 */
+    display: flex;                 /* ↓ 中の文字を中央寄せ */
+    align-items: center;
+}
+
+footer p {
+    font-family: serif;
+    color: white;
+    margin: 0;
+    margin-left: 15vw;
+    font-size: clamp(1.2rem, 2.5vw, 3rem); /* 画面サイズに応じて縮む */
+}
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <title>404 Not Found</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: #f4f4f4;
+                color: #333;
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 6rem;
+                margin: 0;
+            }
+
+            .not {
+                display: inline-block;
+                transition: opacity 15s 1.5s ease-in;
+            }
+
+            .not:hover {
+                opacity: 0;
+            }
+
+            .faded {
+                opacity: 0 !important;
+                pointer-events: none;
+            }
+
+            p {
+                font-size: 1.2rem;
+                color: #666;
+                margin-top: 1rem;
+            }
+
+            :not(input):not(textarea) {
+                -webkit-user-select: none; /* Chrome, Safari */
+                -moz-user-select: none; /* Firefox */
+                -ms-user-select: none; /* IE/Edge */
+                user-select: none;
+                -webkit-touch-callout: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>
+            <div id="all">
+                <span id="not" class="not" style="cursor: none;">Not</span>
+                <span id="found">Found</span>
+            </div>
+        </h1>
+        <p>お探しのページは存在しないか、削除された可能性があります。</p>
+
+        <script>
+            alert("カーソルをホバーする")
+            const all = document.getElementById("all");
+            const not = document.getElementById("not");
+            const found = document.getElementById("found");
+
+            const handleAllClick = () => {
+            };
+
+            all.addEventListener("click", handleAllClick);
+
+            not.addEventListener("transitionend", () => {
+                const style = window.getComputedStyle(not);
+                if (parseFloat(style.opacity) === 0) {
+                    not.classList.add("faded");
+
+                    all.removeEventListener("click", handleAllClick);
+
+                    all.style.cursor = "auto";
+                    found.style.cursor = "pointer";
+
+                    found.addEventListener(
+                        "click",
+                        (e) => {
+                            e.stopPropagation();
+                            location.href = "../何もないサイトzzzz9/index.html";
+                        },
+                        { once: true }
+                    );
+                }
+            });
+        </script>
+    </body>
+</html>
